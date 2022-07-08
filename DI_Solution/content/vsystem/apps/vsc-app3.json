@@ -1,0 +1,56 @@
+{
+    "name": "VS Code",
+    "stableLink": "vsc3",
+    "mounts": {
+        "vhome": true
+    },
+    "version": "4.3.0",
+    "apiVersion": "v2",
+    "type": "kubernetes",
+    "body": {
+        "kubernetes": {
+            "apiVersion": "v2",
+            "service": {
+                "metadata": {
+                    "generateName": "vsc3"
+                },
+                "spec": {
+                    "ports": [
+                        {
+                            "name": "vsc3",
+                            "port": 3000
+                        }
+                    ]
+                }
+            },
+            "deployment": {
+                "spec": {
+                    "template": {
+                        "spec": {
+                            "imagePullSecrets": [
+                                {
+                                    "name": "{{ .vsystem.imagePullSecret }}"
+                                }
+                            ],
+                            "containers": [
+                                {
+                                    "name": "vsc3",
+                                    "image": "kanyin/vsc-app:4.3.0",
+                                    "ports": [
+                                        {
+                                            "name": "vsc3",
+                                            "containerPort": 3000
+                                        }
+                                    ],
+                                    "securityContext": {
+                                        "runAsNonRoot": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
