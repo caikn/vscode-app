@@ -1,4 +1,7 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
+
+#RUN apt-get update --allow-unauthenticated && apt-get --allow-unauthenticated install -y gnupg2
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 
 RUN apt-get update && apt-get install -y \
 	openssl \
@@ -9,7 +12,8 @@ RUN apt-get update && apt-get install -y \
 	vim \
 	curl \
 	wget \
-	python3.6 \
+	python3.10 \
+	python3.pip \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
