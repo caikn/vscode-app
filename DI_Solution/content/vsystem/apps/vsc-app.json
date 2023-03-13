@@ -1,10 +1,10 @@
 {
     "name": "VS Code",
-    "stableLink": "vsc3",
+    "stableLink": "vsc",
     "mounts": {
         "vhome": true
     },
-    "version": "4.3.0",
+    "version": "4.10.0",
     "apiVersion": "v2",
     "type": "kubernetes",
     "body": {
@@ -12,12 +12,12 @@
             "apiVersion": "v2",
             "service": {
                 "metadata": {
-                    "generateName": "vsc3"
+                    "generateName": "vsc"
                 },
                 "spec": {
                     "ports": [
                         {
-                            "name": "vsc3",
+                            "name": "vsc",
                             "port": 3000
                         }
                     ]
@@ -34,11 +34,11 @@
                             ],
                             "containers": [
                                 {
-                                    "name": "vsc3",
-                                    "image": "kanyin/vsc-app:4.3.0",
+                                    "name": "vsc",
+                                    "image": "kanyin/vsc-app:4.10.0",
                                     "ports": [
                                         {
-                                            "name": "vsc3",
+                                            "name": "vsc",
                                             "containerPort": 3000
                                         }
                                     ],
