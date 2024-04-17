@@ -36,7 +36,9 @@ ENV GIT_DISCOVERY_ACROSS_FILESYSTEM 1
 
 # install vscode extensions
 RUN code-server --install-extension donjayamanne.githistory
+RUN code-server --install-extension eamodio.gitlens
 RUN code-server --install-extension ms-python.python
+RUN code-server --install-extension ms-python.vscode-pylance
 
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["bash", "-c", "exec code-server --host 0.0.0.0 --port 3000 --auth none /vhome"]
