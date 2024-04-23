@@ -1,7 +1,4 @@
-FROM ubuntu:22.10
-
-#RUN apt-get update --allow-unauthenticated && apt-get --allow-unauthenticated install -y gnupg2
-#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
 	openssl \
@@ -22,7 +19,7 @@ ENV LC_ALL=en_US.UTF-8 \
 	SHELL=/bin/bash
 
 # install the latest version
-RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 4.10.0
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 4.23.1
 
 RUN groupadd -g 999 coder && \
     useradd -r -u 999 -g coder coder && \
@@ -38,7 +35,7 @@ ENV GIT_DISCOVERY_ACROSS_FILESYSTEM 1
 RUN code-server --install-extension donjayamanne.githistory
 RUN code-server --install-extension eamodio.gitlens
 RUN code-server --install-extension ms-python.python
-RUN code-server --install-extension ms-python.vscode-pylance
+RUN code-server --install-extension ms-python.pylint
 
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["bash", "-c", "exec code-server --host 0.0.0.0 --port 3000 --auth none /vhome"]
