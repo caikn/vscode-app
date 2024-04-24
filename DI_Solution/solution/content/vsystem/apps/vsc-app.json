@@ -4,7 +4,7 @@
     "mounts": {
         "vhome": true
     },
-    "version": "4.10.0",
+    "version": "4.23.1",
     "apiVersion": "v2",
     "type": "kubernetes",
     "body": {
@@ -35,7 +35,7 @@
                             "containers": [
                                 {
                                     "name": "vsc",
-                                    "image": "kanyin/vsc-app:4.10.0",
+                                    "image": "kanyin/vsc-app:latest",
                                     "ports": [
                                         {
                                             "name": "vsc",
