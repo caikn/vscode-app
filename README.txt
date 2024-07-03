@@ -1,3 +1,5 @@
+more details about build:
+https://github.com/SAP-samples/datahub-integration-examples/blob/main/GitWorkflow/vscode-app/Readme.md
 
 # build new image
 docker build --tag kanyin/vsc-app:4.23.1 .
